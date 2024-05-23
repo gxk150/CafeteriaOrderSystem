@@ -1,72 +1,160 @@
 from django.db import models
 
-
-class User(models.Model):
-    USER_ROLE_CHOICES = [
-        ('student', 'Student'),
-        ('staff', 'Staff'),
-    ]
-
-    id = models.AutoField(primary_key=True)
-    username = models.CharField(max_length=50, unique=True)
-    password = models.CharField(max_length=256)
-    name = models.CharField(max_length=50)
-    gender = models.CharField(max_length=10)
-    role = models.CharField(max_length=10, choices=USER_ROLE_CHOICES)
-    student_id = models.CharField(max_length=20, blank=True, null=True)
-    staff_id = models.CharField(max_length=20, blank=True, null=True)
-    email = models.EmailField(unique=True)
-    phone = models.CharField(max_length=20)
-
-    def __str__(self):
-        return self.username
-
-
-class Merchant(models.Model):
-    id = models.AutoField(primary_key=True, default='default')
-    name = models.CharField(max_length=100, unique=True, default='default')
-    address = models.CharField(max_length=255, default='default')
-    description = models.TextField(blank=True, null=True)
-    rating = models.FloatField(default=0)
-    email = models.EmailField(unique=True, default='default')
-    phone = models.CharField(max_length=20, default='default')
-
-    def __str__(self):
-        return self.name
+from django.utils import timezone
 
 
 class Admin(models.Model):
     id = models.AutoField(primary_key=True)
-    username = models.CharField(max_length=50, unique=True)
-    password = models.CharField(max_length=256)
-    name = models.CharField(max_length=50)
-    email = models.EmailField(unique=True)
-    phone = models.CharField(max_length=20)
+    user_name = models.CharField(max_length=255)
+    password = models.CharField(max_length=255)
+    created_time = models.DateTimeField(default=timezone.now)
+    permission_type = models.CharField(max_length=255)
 
     def __str__(self):
-        return self.username
+        return self.user_name
 
 
-class Dish(models.Model):
-    dish_id = models.AutoField(primary_key=True)
-    name = models.CharField(max_length=100)
-    price = models.DecimalField(max_digits=10, decimal_places=2)
-    category = models.CharField(max_length=50)
-    description = models.TextField()
-    image = models.ImageField(upload_to='dishes/')
-    merchant = models.ForeignKey(Merchant, on_delete=models.CASCADE)
+class User(models.Model):
+    id = models.AutoField(primary_key=True)
+    name = models.CharField(max_length=255)
+    gender = models.CharField(max_length=10)
+    age = models.IntegerField()
+    nationality = models.CharField(max_length=255)
+    ethnic_group = models.CharField(max_length=255, default='Unknown')
+    role = models.CharField(max_length=10, choices=[('student', 'Student'), ('staff', 'Staff')])
+    wallet = models.FloatField(default=0.0)
 
     def __str__(self):
         return self.name
 
 
-class Order(models.Model):
-    order_id = models.AutoField(primary_key=True)
-    user = models.ForeignKey(User, on_delete=models.CASCADE)
-    dish = models.ForeignKey(Dish, on_delete=models.CASCADE)
-    quantity = models.IntegerField()
-    status = models.CharField(max_length=50, choices=[('Pending', 'Pending'), ('Confirmed', 'Confirmed'), ('Delivered', 'Delivered')])
-    order_date = models.DateTimeField(auto_now_add=True)
+class Merchant(models.Model):
+    id = models.AutoField(primary_key=True)
+    name = models.CharField(max_length=255)
+    address = models.CharField(max_length=255, default='Default Address')
+    rating = models.IntegerField(default=0)
+    favorite_count = models.IntegerField(default=0)
 
     def __str__(self):
-        return f"Order {self.order_id} by {self.user.username}"
+        return self.name
+
+
+class Keyword(models.Model):
+    id = models.AutoField(primary_key=True)
+    keyword = models.CharField(max_length=255)
+
+    def __str__(self):
+        return self.keyword
+
+
+class MerchantKeyword(models.Model):
+    merchant = models.ForeignKey(Merchant, on_delete=models.CASCADE, null=True, blank=True)
+    keyword = models.ForeignKey(Keyword, on_delete=models.CASCADE)
+
+
+class Dish(models.Model):
+    id = models.AutoField(primary_key=True)
+    name = models.CharField(max_length=255)
+    price = models.FloatField()
+    category = models.CharField(max_length=255)
+    description = models.TextField()
+    image = models.ImageField(upload_to='dish_images/', null=True, blank=True)
+    merchant = models.ForeignKey(Merchant, on_delete=models.CASCADE)
+    ingredients = models.TextField()
+    nutrition_info = models.TextField()
+    allergens = models.TextField()
+    user_rating = models.FloatField(default=0.0)
+    review = models.TextField(null=True, blank=True)
+    is_special = models.BooleanField(default=False)
+    favorite_count = models.IntegerField(default=0)
+
+    def __str__(self):
+        return self.name
+
+
+class RestaurantReview(models.Model):
+    id = models.AutoField(primary_key=True)
+    restaurant = models.ForeignKey(Merchant, on_delete=models.CASCADE)
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    rating = models.IntegerField()
+    comment = models.TextField()
+    created_time = models.DateTimeField(default=timezone.now)
+
+    def __str__(self):
+        return f'Review by {self.user.name} for {self.restaurant.name}'
+
+
+class DishReview(models.Model):
+    id = models.AutoField(primary_key=True)
+    dish = models.ForeignKey(Dish, on_delete=models.CASCADE)
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    rating = models.IntegerField()
+    comment = models.TextField(null=True, blank=True)
+    created_time = models.DateTimeField(default=timezone.now)
+
+    def __str__(self):
+        return f'Review by {self.user.name} for {self.dish.name}'
+
+
+class Order(models.Model):
+    STATUS_CHOICES = [
+        ('Pending', 'Pending'),
+        ('Completed', 'Completed'),
+        ('Cancelled', 'Cancelled')
+    ]
+
+    ORDER_TYPE_CHOICES = [
+        ('Online', 'Online'),
+        ('Offline', 'Offline')
+    ]
+
+    id = models.AutoField(primary_key=True)
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    merchant = models.ForeignKey(Merchant, on_delete=models.CASCADE)
+    order_date = models.DateTimeField(default=timezone.now)
+    total_price = models.FloatField()
+    status = models.CharField(max_length=10, choices=STATUS_CHOICES)
+    order_type = models.CharField(max_length=10, choices=ORDER_TYPE_CHOICES)
+
+    def __str__(self):
+        return f'Order {self.id} by {self.user.name}'
+
+
+class OrderDetail(models.Model):
+    id = models.AutoField(primary_key=True)
+    order = models.ForeignKey(Order, on_delete=models.CASCADE)
+    dish = models.ForeignKey(Dish, on_delete=models.CASCADE)
+    quantity = models.IntegerField()
+    price = models.FloatField()
+
+    def __str__(self):
+        return f'Detail {self.id} for Order {self.order.id}'
+
+
+class FavoriteMerchant(models.Model):
+    id = models.AutoField(primary_key=True)
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    merchant = models.ForeignKey(Merchant, on_delete=models.CASCADE)
+
+    def __str__(self):
+        return f'{self.user.name} favorites {self.merchant.name}'
+
+
+class FavoriteDish(models.Model):
+    id = models.AutoField(primary_key=True)
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    dish = models.ForeignKey(Dish, on_delete=models.CASCADE)
+
+    def __str__(self):
+        return f'{self.user.name} favorites {self.dish.name}'
+
+
+class DishPriceChange(models.Model):
+    id = models.AutoField(primary_key=True)
+    dish = models.ForeignKey(Dish, on_delete=models.CASCADE)
+    original_price = models.FloatField()
+    changed_price = models.FloatField()
+    change_time = models.DateTimeField(default=timezone.now)
+
+    def __str__(self):
+        return f'Price change for {self.dish.name}'
