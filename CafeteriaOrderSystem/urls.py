@@ -17,8 +17,9 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include, reverse
 from django.shortcuts import HttpResponse, render
-
+from django.urls import path
 from cafeteria import views
+from cafeteria.views import register_choice, register_admin, register_user, register_merchant, login_view
 
 
 
@@ -29,8 +30,10 @@ def index(request):
 urlpatterns = [
     path('', views.index, name='index'),
     path('login/', views.login_view, name='login'),
-    path('register/', views.register_view, name='register'),
-
+    path('register/', register_choice, name='register_choice'),
+    path('register/admin/', register_admin, name='register_admin'),
+    path('register/user/', register_user, name='register_user'),
+    path('register/merchant/', register_merchant, name='register_merchant'),
     path('cafeteria/', include('cafeteria.urls')),
 
 ]

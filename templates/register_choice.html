@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Welcome</title>
+    <title>Register</title>
     <style>
         body {
             display: flex;
@@ -11,18 +11,18 @@
             background-color: #e0f7fa;
             font-family: Arial, sans-serif;
         }
-        .welcome-container {
+        .register-container {
             background-color: white;
             padding: 40px;
             border-radius: 8px;
             box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
-            width: 350px;
+            width: 300px;
             text-align: center;
         }
-        .welcome-container h1 {
+        .register-container h2 {
             margin-bottom: 20px;
         }
-        .welcome-container button {
+        .register-container button {
             padding: 10px;
             margin: 10px 0;
             background-color: #007bff;
@@ -32,16 +32,17 @@
             cursor: pointer;
             width: 100%;
         }
-        .welcome-container button:hover {
+        .register-container button:hover {
             background-color: #0056b3;
         }
     </style>
 </head>
 <body>
-    <div class="welcome-container">
-        <h1>欢迎来到食堂点餐系统</h1>
-        <button onclick="location.href='{% url 'login' %}'">登录</button>
-        <button onclick="location.href='{% url 'register_choice' %}'">注册</button>
+    <div class="register-container">
+        <h2>Register</h2>
+        <button onclick="location.href='{% url 'register_admin' %}'">Register as Admin</button>
+        <button onclick="location.href='{% url 'register_user' %}'">Register as User</button>
+        <button onclick="location.href='{% url 'register_merchant' %}'">Register as Merchant</button>
     </div>
 </body>
 </html>

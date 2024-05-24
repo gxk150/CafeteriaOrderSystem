@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Login</title>
+    <title>Register Merchant</title>
     <style>
         body {
             display: flex;
@@ -11,7 +11,7 @@
             background-color: #e0f7fa;
             font-family: Arial, sans-serif;
         }
-        .login-container {
+        .register-container {
             background-color: white;
             padding: 40px;
             border-radius: 8px;
@@ -19,10 +19,10 @@
             width: 350px;
             text-align: center;
         }
-        .login-container h2 {
+        .register-container h2 {
             margin-bottom: 20px;
         }
-        .login-container form {
+        .register-container form {
             display: flex;
             flex-direction: column;
             align-items: center;
@@ -36,15 +36,14 @@
         .form-group label {
             margin-bottom: 5px;
         }
-        .form-group input, .form-group select {
+        .form-group input {
             margin-bottom: 10px;
             padding: 10px;
             border: 1px solid #ccc;
             border-radius: 4px;
             width: 100%;
-            box-sizing: border-box; /* Ensure padding and border are included in the element's total width */
         }
-        .login-container form button {
+        .register-container form button {
             padding: 10px;
             background-color: #007bff;
             color: white;
@@ -53,42 +52,29 @@
             cursor: pointer;
             width: 100%;
         }
-        .login-container form button:hover {
+        .register-container form button:hover {
             background-color: #0056b3;
-        }
-        .messages {
-            margin-bottom: 20px;
-            color: red;
         }
     </style>
 </head>
 <body>
-    <div class="login-container">
-        <h2>Login</h2>
-        {% if messages %}
-            <div class="messages">
-                <ul>
-                    {% for message in messages %}
-                        <li>{{ message }}</li>
-                    {% endfor %}
-                </ul>
-            </div>
-        {% endif %}
+    <div class="register-container">
+        <h2>Register Merchant</h2>
         <form method="post">
             {% csrf_token %}
             <div class="form-group">
-                <label for="role">Role:</label>
-                {{ form.role }}
-            </div>
-            <div class="form-group">
-                <label for="id">ID:</label>
-                {{ form.id }}
+                <label for="name">Name:</label>
+                {{ form.name }}
             </div>
             <div class="form-group">
                 <label for="password">Password:</label>
                 {{ form.password }}
             </div>
-            <button type="submit">Login</button>
+            <div class="form-group">
+                <label for="address">Address:</label>
+                {{ form.address }}
+            </div>
+            <button type="submit">Register</button>
         </form>
     </div>
 </body>

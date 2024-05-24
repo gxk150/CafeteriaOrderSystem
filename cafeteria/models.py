@@ -5,7 +5,7 @@ from django.utils import timezone
 
 class Admin(models.Model):
     id = models.AutoField(primary_key=True)
-    user_name = models.CharField(max_length=255)
+    name = models.CharField(max_length=255)
     password = models.CharField(max_length=255)
     created_time = models.DateTimeField(default=timezone.now)
     permission_type = models.CharField(max_length=255)
@@ -17,6 +17,7 @@ class Admin(models.Model):
 class User(models.Model):
     id = models.AutoField(primary_key=True)
     name = models.CharField(max_length=255)
+    password = models.CharField(max_length=255)
     gender = models.CharField(max_length=10)
     age = models.IntegerField()
     nationality = models.CharField(max_length=255)
@@ -31,6 +32,7 @@ class User(models.Model):
 class Merchant(models.Model):
     id = models.AutoField(primary_key=True)
     name = models.CharField(max_length=255)
+    password = models.CharField(max_length=255)
     address = models.CharField(max_length=255, default='Default Address')
     rating = models.IntegerField(default=0)
     favorite_count = models.IntegerField(default=0)
