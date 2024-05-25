@@ -1,7 +1,4 @@
-INSERT INTO Admin (ID, userName, password, createtime, permission_type)
-VALUES (1, 'admin_user', 'encrypted_password', '2024-05-22 10:00:00', 'SuperAdmin');
-
-INSERT INTO User (ID, Name, Gender, age, nationality, ethnic_group, Role, wallet)
+INSERT INTO User (id, name, Gender, age, nationality, ethnic_group, Role, wallet)
 VALUES 
 -- Han Ethnic Group (14 students)
 (100001, '李明', 'Male', 20, 'Chinese', 'Han', 'Student', 100.00),

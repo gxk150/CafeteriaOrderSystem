@@ -1,8 +1,8 @@
-from pyexpat.errors import messages
-
+from django.contrib import messages
 from django.shortcuts import render, redirect
 
 from cafeteria.forms import LoginForm
+from django.contrib.auth.hashers import check_password
 from cafeteria.models import Admin, User, Merchant
 from .forms import AdminRegistrationForm, UserRegistrationForm, MerchantRegistrationForm
 
@@ -22,31 +22,39 @@ def login_view(request):
 
             if role == 'admin':
                 try:
-                    admin = Admin.objects.get(id=user_id, password=password)
-                    request.session['user_id'] = admin.id
-                    request.session['user_type'] = 'admin'
-                    return redirect('admin_dashboard')
+                    admin = Admin.objects.get(id=user_id)
+                    if check_password(password, admin.password):
+                        request.session['user_id'] = admin.id
+                        request.session['user_type'] = 'admin'
+                        return redirect('admin_dashboard')
+                    else:
+                        messages.error(request, 'Invalid ID or password for Admin')
                 except Admin.DoesNotExist:
                     messages.error(request, 'Invalid ID or password for Admin')
 
             elif role == 'user':
                 try:
-                    user = User.objects.get(id=user_id, password=password)
-                    request.session['user_id'] = user.id
-                    request.session['user_type'] = 'user'
-                    return redirect('user_dashboard')
+                    user = User.objects.get(id=user_id)
+                    if check_password(password, user.password):
+                        request.session['user_id'] = user.id
+                        request.session['user_type'] = 'user'
+                        return redirect('user_dashboard')
+                    else:
+                        messages.error(request, 'Invalid ID or password for User')
                 except User.DoesNotExist:
                     messages.error(request, 'Invalid ID or password for User')
 
             elif role == 'merchant':
                 try:
-                    merchant = Merchant.objects.get(id=user_id, password=password)
-                    request.session['user_id'] = merchant.id
-                    request.session['user_type'] = 'merchant'
-                    return redirect('merchant_dashboard')
+                    merchant = Merchant.objects.get(id=user_id)
+                    if check_password(password, merchant.password):
+                        request.session['user_id'] = merchant.id
+                        request.session['user_type'] = 'merchant'
+                        return redirect('merchant_dashboard')
+                    else:
+                        messages.error(request, 'Invalid ID or password for Merchant')
                 except Merchant.DoesNotExist:
                     messages.error(request, 'Invalid ID or password for Merchant')
-
     else:
         form = LoginForm()
 

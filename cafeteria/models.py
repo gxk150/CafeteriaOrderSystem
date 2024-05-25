@@ -74,9 +74,9 @@ class Dish(models.Model):
         return self.name
 
 
-class RestaurantReview(models.Model):
+class MerchantReview(models.Model):
     id = models.AutoField(primary_key=True)
-    restaurant = models.ForeignKey(Merchant, on_delete=models.CASCADE)
+    merchant = models.ForeignKey(Merchant, on_delete=models.CASCADE)
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     rating = models.IntegerField()
     comment = models.TextField()

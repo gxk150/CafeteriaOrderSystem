@@ -5,18 +5,15 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="9d224d1b-2a97-4144-b709-d82de6b8c3a9" name="Changes" comment="表的创立以及创立初始的ER图">
-      <change afterPath="$PROJECT_DIR$/cafeteria/forms.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/register_admin.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/register_choice.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/register_merchant.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/register_user.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/sqldialects.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data/admin_data.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/scripts/insert_data.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CafeteriaOrderSystem/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/CafeteriaOrderSystem/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CafeteriaOrderSystem/create_table.sql" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/CafeteriaOrderSystem/insert_data.sql" beforeDir="false" afterPath="$PROJECT_DIR$/CafeteriaOrderSystem/insert_data.sql" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cafeteria/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/cafeteria/models.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cafeteria/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/cafeteria/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/login.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/login.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/register.html" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -70,6 +67,7 @@
     "RunOnceActivity.OpenDjangoStructureViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "RunOnceActivity.pycharm.django.structure.promotion.once.per.project": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "django.template.preview.state": "SHOW_EDITOR",
     "git-widget-placeholder": "main",
     "last_opened_file_path": "/Users/gxk/复旦/大二/大二下/数据库设计/CafeteriaOrderSystem",
@@ -131,7 +129,7 @@
       <option name="presentableId" value="Default" />
       <updated>1716184326097</updated>
       <workItem from="1716184333287" duration="3558000" />
-      <workItem from="1716211154532" duration="45668000" />
+      <workItem from="1716211154532" duration="56605000" />
     </task>
     <task id="LOCAL-00001" summary="initial create">
       <option name="closed" value="true" />
@@ -173,7 +171,15 @@
       <option name="project" value="LOCAL" />
       <updated>1716447906142</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="表的创立以及创立初始的ER图">
+      <option name="closed" value="true" />
+      <created>1716554489318</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1716554489319</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
