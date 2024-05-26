@@ -23,7 +23,9 @@
 ![image](https://github.com/gxk150/CafeteriaOrderSystem/blob/main/image/user_register.jpg)
 ![image](https://github.com/gxk150/CafeteriaOrderSystem/blob/main/image/login_role.jpg)  
 
-还要完成：
+还要完成：查询需求
 
 ## 其他待完成的任务
+索引和事务设计  
+2种深度数据分析功能
 
