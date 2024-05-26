@@ -4,16 +4,15 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="9d224d1b-2a97-4144-b709-d82de6b8c3a9" name="Changes" comment="表的创立以及创立初始的ER图">
-      <change afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/sqldialects.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/data/admin_data.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/scripts/insert_data.py" afterDir="false" />
+    <list default="true" id="9d224d1b-2a97-4144-b709-d82de6b8c3a9" name="Changes" comment="加载数据库数据的初步实现">
+      <change afterPath="$PROJECT_DIR$/data/dish_data.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data/merchant_data.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data/user_data.csv" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CafeteriaOrderSystem/create_table.sql" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CafeteriaOrderSystem/insert_data.sql" beforeDir="false" afterPath="$PROJECT_DIR$/CafeteriaOrderSystem/insert_data.sql" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cafeteria/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/cafeteria/models.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cafeteria/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/cafeteria/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CafeteriaOrderSystem/insert_data.sql" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/admin_data.csv" beforeDir="false" afterPath="$PROJECT_DIR$/data/admin_data.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/scripts/insert_data.py" beforeDir="false" afterPath="$PROJECT_DIR$/scripts/insert_data.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -129,7 +128,7 @@
       <option name="presentableId" value="Default" />
       <updated>1716184326097</updated>
       <workItem from="1716184333287" duration="3558000" />
-      <workItem from="1716211154532" duration="56605000" />
+      <workItem from="1716211154532" duration="65484000" />
     </task>
     <task id="LOCAL-00001" summary="initial create">
       <option name="closed" value="true" />
@@ -179,7 +178,23 @@
       <option name="project" value="LOCAL" />
       <updated>1716554489319</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="加载数据库数据的初步实现">
+      <option name="closed" value="true" />
+      <created>1716642089466</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1716642089466</updated>
+    </task>
+    <task id="LOCAL-00008" summary="加载数据库数据的初步实现">
+      <option name="closed" value="true" />
+      <created>1716642199595</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1716642199595</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -199,6 +214,7 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="initial create" />
     <MESSAGE value="表的创立以及创立初始的ER图" />
-    <option name="LAST_COMMIT_MESSAGE" value="表的创立以及创立初始的ER图" />
+    <MESSAGE value="加载数据库数据的初步实现" />
+    <option name="LAST_COMMIT_MESSAGE" value="加载数据库数据的初步实现" />
   </component>
 </project>
