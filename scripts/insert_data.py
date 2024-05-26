@@ -84,7 +84,7 @@ def insert_dish_from_csv(file_path):
                 price=float(row['price']),
                 category=row['category'],
                 description=row['description'],
-                image=row['image'],
+                image=row['images'],
                 merchant_id=int(row['merchant_id']),
                 ingredients=row['ingredients'],
                 nutrition_info=row['nutrition_info'],
