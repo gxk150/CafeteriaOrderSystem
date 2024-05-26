@@ -1,2 +1,2 @@
-id,name,password,created_time,permission_type
-1,admin_user,123456,2024-05-22 10:00:00,SuperAdmin
+id,name,password
+1,admin_user,123456s

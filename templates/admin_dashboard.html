@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+<body>
+    <div class="container admin-dashboard">
+        <nav>
+            <a href="{% url 'logout' %}" class="logout">Logout</a>
+        </nav>
+        <div class="dashboard">
+            <div class="admin-info">
+                <h2>Admin Information</h2>
+                <p><strong>ID:</strong> {{ admin.id }}</p>
+                <p><strong>Name:</strong> {{ admin.name }}</p>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

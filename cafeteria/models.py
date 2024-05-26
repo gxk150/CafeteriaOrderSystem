@@ -7,11 +7,9 @@ class Admin(models.Model):
     id = models.AutoField(primary_key=True)
     name = models.CharField(max_length=255)
     password = models.CharField(max_length=255)
-    created_time = models.DateTimeField(default=timezone.now)
-    permission_type = models.CharField(max_length=255)
 
     def __str__(self):
-        return self.user_name
+        return self.name
 
 
 class User(models.Model):
@@ -60,7 +58,7 @@ class Dish(models.Model):
     price = models.FloatField()
     category = models.CharField(max_length=255)
     description = models.TextField()
-    image = models.ImageField(upload_to='dish_images/', null=True, blank=True)
+    image = models.ImageField(upload_to='images/', null=True, blank=True)
     merchant = models.ForeignKey(Merchant, on_delete=models.CASCADE)
     ingredients = models.TextField()
     nutrition_info = models.TextField()

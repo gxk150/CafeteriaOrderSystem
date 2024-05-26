@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Merchant Dashboard</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+<body>
+    <div class="container">
+        <nav>
+            <a href="{% url 'logout' %}" class="logout">Logout</a>
+        </nav>
+        <div class="dashboard">
+            <div class="merchant-info">
+                <h2>Merchant Information</h2>
+                <p><strong>ID:</strong> {{ merchant.id }}</p>
+                <p><strong>Name:</strong> {{ merchant.name }}</p>
+                <p><strong>Address:</strong> {{ merchant.address }}</p>
+                <p><strong>Rating:</strong> {{ merchant.rating }}</p>
+                <p><strong>Favorite Count:</strong> {{ merchant.favorite_count }}</p>
+            </div>
+            <div class="dish-info">
+                <h2>Dishes</h2>
+                {% for category, dishes in categorized_dishes.items %}
+                <h3>{{ category }}</h3>
+                <ul>
+                    {% for dish in dishes %}
+                    <li>
+                        <img src="{{ dish.image.url }}" alt="{{ dish.name }}" class="dish-image">
+                        <p><strong>{{ dish.name }}</strong></p>
+                        <p>Price: ${{ dish.price }}</p>
+                    </li>
+                    {% endfor %}
+                </ul>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+</body>
+</html>

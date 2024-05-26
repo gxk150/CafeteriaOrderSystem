@@ -18,9 +18,12 @@ from django.contrib import admin
 from django.urls import path, include, reverse
 from django.shortcuts import HttpResponse, render
 from django.urls import path
-from cafeteria import views
-from cafeteria.views import register_choice, register_admin, register_user, register_merchant, login_view
 
+from django.conf.urls.static import static
+from CafeteriaOrderSystem import settings
+from cafeteria import views
+from cafeteria.views import register_choice, register_admin, register_user, register_merchant, login_view, \
+    user_dashboard
 
 
 def index(request):
@@ -35,5 +38,10 @@ urlpatterns = [
     path('register/user/', register_user, name='register_user'),
     path('register/merchant/', register_merchant, name='register_merchant'),
     path('cafeteria/', include('cafeteria.urls')),
+    path('admin/dashboard/', views.admin_dashboard, name='admin_dashboard'),
+    path('user/dashboard/', views.user_dashboard, name='user_dashboard'),
+    path('merchant/dashboard/', views.merchant_dashboard, name='merchant_dashboard'),
+    path('search/', views.search, name='search'),
+    path('logout/', views.logout_view, name='logout'),
 
-]
+]+ static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

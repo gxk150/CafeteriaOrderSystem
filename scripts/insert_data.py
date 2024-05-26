@@ -4,6 +4,8 @@ from datetime import datetime
 import pytz
 
 import django
+from django.contrib.auth.hashers import make_password
+
 from django.utils import timezone
 
 # 设置 Django 环境
@@ -18,18 +20,14 @@ from cafeteria.models import Admin, User, Merchant, Dish
 
 def insert_admin_from_csv(file_path):
     Admin.objects.all().delete()  # 清空表
-    with open(file_path, newline='') as csvfile:
+    with open(file_path, newline='', encoding='utf-8') as csvfile:
         reader = csv.DictReader(csvfile)
         admins = []
         for row in reader:
-            created_time = datetime.strptime(row['created_time'], '%Y-%m-%d %H:%M:%S')
-            created_time = pytz.utc.localize(created_time)  # 将 datetime 对象转换为带时区的对象
             admin = Admin(
                 id=int(row['id']),
                 name=row['name'],
-                password=row['password'],
-                created_time=created_time,
-                permission_type=row['permission_type']
+                password=make_password(row['password']),
             )
             admins.append(admin)
         Admin.objects.bulk_create(admins)
@@ -44,7 +42,7 @@ def insert_user_from_csv(file_path):
             user = User(
                 id=int(row['id']),
                 name=row['name'],
-                password=row['password'],
+                password=make_password(row['password']),
                 gender=row['gender'],
                 age=int(row['age']),
                 nationality=row['nationality'],
@@ -65,7 +63,7 @@ def insert_merchant_from_csv(file_path):
             merchant = Merchant(
                 id=int(row['id']),
                 name=row['name'],
-                password=row['id'],  # 使用 id 作为密码
+                password=make_password(row['id']),  # 使用 id 作为密码
                 address=row['address'],
                 rating=0,
                 favorite_count=0

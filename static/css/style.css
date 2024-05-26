@@ -1,0 +1,122 @@
+/* 通用样式 */
+body {
+    background-color: #e0f7fa;
+    font-family: Arial, sans-serif;
+}
+
+.container {
+    max-width: 800px;
+    margin: 50px auto;
+    padding: 20px;
+    background-color: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+nav {
+    display: flex;
+    justify-content: flex-end;
+    margin-bottom: 20px;
+}
+
+.logout {
+    background-color: #007bff;
+    color: #ffffff;
+    padding: 10px 20px;
+    text-decoration: none;
+    border-radius: 5px;
+}
+
+.logout:hover {
+    background-color: #0056b3;
+}
+
+/* 用户Dashboard样式 */
+.user-dashboard .dashboard {
+    display: flex;
+    flex-direction: column;
+}
+
+.user-dashboard .user-info,
+.user-dashboard .actions {
+    margin-bottom: 20px;
+}
+
+.user-dashboard .user-info h2,
+.user-dashboard .actions h2 {
+    border-bottom: 2px solid #007bff;
+    padding-bottom: 5px;
+    margin-bottom: 10px;
+}
+
+.user-dashboard .search-form {
+    display: flex;
+    margin-bottom: 10px;
+}
+
+.user-dashboard .search-form input {
+    flex-grow: 1;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px 0 0 5px;
+}
+
+.user-dashboard .search-form button {
+    padding: 10px;
+    border: none;
+    background-color: #007bff;
+    color: #ffffff;
+    border-radius: 0 5px 5px 0;
+}
+
+.user-dashboard .search-form button:hover {
+    background-color: #0056b3;
+}
+
+.user-dashboard button {
+    padding: 10px 20px;
+    border: none;
+    background-color: #007bff;
+    color: #ffffff;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.user-dashboard button:hover {
+    background-color: #0056b3;
+}
+
+/* 商家Dashboard样式 */
+.merchant-dashboard .dashboard {
+    display: flex;
+    flex-direction: column;
+}
+
+.merchant-dashboard .merchant-info,
+.merchant-dashboard .dishes {
+    margin-bottom: 20px;
+}
+
+.merchant-dashboard .merchant-info h2,
+.merchant-dashboard .dishes h2 {
+    border-bottom: 2px solid #007bff;
+    padding-bottom: 5px;
+    margin-bottom: 10px;
+}
+.dish-info ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.dish-info li {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.dish-image {
+    width: 50px;
+    height: 50px;
+    margin-right: 10px;
+    border-radius: 5px;
+}

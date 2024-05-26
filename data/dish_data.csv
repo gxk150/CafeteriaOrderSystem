@@ -1,5 +1,5 @@
 id,name,price,category,description,image,merchant_id,ingredients,nutrition_info,allergens,user_rating,review,is_special,favorite_count
-400001,招牌小笼包,28.00,Snack,"经典美味",zhaopaixiaolongbao.jpg,300001,"面粉, 猪肉",400kcal,"面粉",,,False,
+400001,招牌小笼包,28.00,Snack,"经典美味",../iamge/zhaopaixiaolongbao.jpg,300001,"面粉, 猪肉",400kcal,"面粉",,,False,
 400002,鲜虾烧卖,32.00,Snack,"鲜美虾肉",xianxiashaomai.jpg,300001,"面粉, 虾仁",450kcal,"面粉, 虾",,,True,
 400003,麻婆豆腐,30.00,Main Course,"麻辣鲜香",mapodoufu.jpg,300001,"豆腐, 辣椒",420kcal,"无",,,False,
 400004,粤式烧鸭,28.00,Main Course,"香嫩多汁",yueshiya.jpg,300001,"鸭肉, 酱料",400kcal,"无",,,True,
