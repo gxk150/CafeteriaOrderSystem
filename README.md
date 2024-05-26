@@ -3,7 +3,7 @@
 
 ## 导入数据
 已经生成管理员数据（1位），用户数据（50位，具体构成如下，方便后续做用户群体特征分析），商户数据（10家），菜品数据（50道，每家商户5道）。生成的数据以csv格式存放在data/，可通过运行python scripts/insert_data.py进行导入
-https://github.com/gxk150/CafeteriaOrderSystem/blob/main/image/user_structure.png
+!image(https://github.com/gxk150/CafeteriaOrderSystem/blob/main/image/user_structure.png)
 
 
 ## ER图以及表结构
